@@ -30,7 +30,6 @@ public class Program {
                 ChessPosition target = UI.readChessPosition(sc);
 
                 ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
-                System.out.println("Captured piece: " + capturedPiece + " Color: " + capturedPiece.getColor());
 
             } catch (ChessException | InputMismatchException e) {
 
