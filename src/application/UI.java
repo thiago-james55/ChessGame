@@ -66,6 +66,8 @@ public class UI {
                             + chessMatch.getCurrentPlayer()
                             + ANSI_RESET);
 
+        if (chessMatch.getCheck()) { System.out.println("CHECK!"); }
+
         System.out.println(BORDER);
     }
 
