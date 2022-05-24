@@ -61,13 +61,31 @@ public class UI {
         System.out.println(BORDER);
         System.out.println("Turn: " + chessMatch.getTurn());
 
-        System.out.println( "Waiting player: "
-                            + ((chessMatch.getCurrentPlayer() == Color.WHITE) ? ANSI_WHITE : ANSI_YELLOW)
-                            + chessMatch.getCurrentPlayer()
-                            + ANSI_RESET);
+        if(!chessMatch.getCheckMate()) {
 
-        if (chessMatch.getCheck()) { System.out.println("CHECK!"); }
+            System.out.println("Waiting player: "
+                    + ((chessMatch.getCurrentPlayer() == Color.WHITE) ? ANSI_WHITE : ANSI_YELLOW)
+                    + chessMatch.getCurrentPlayer()
+                    + ANSI_RESET);
 
+            if (chessMatch.getCheck()) {
+                System.out.println("CHECK!");
+            }
+        } else {
+            //Efeitinho pra embelezar
+            String checkMate = ">>> CHECKMATE! <<<";
+            System.out.println();
+            try {
+                for (int c = 0; c < checkMate.length(); c++) {
+                    Thread.sleep(100);
+                    System.out.print(checkMate.charAt(c));
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("\n");
+            System.out.println("Winner: " + chessMatch.getCurrentPlayer());
+        }
         System.out.println(BORDER);
     }
 
